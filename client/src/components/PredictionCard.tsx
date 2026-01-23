@@ -1,6 +1,6 @@
 import { usePrediction } from "@/hooks/use-draws";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { BrainCircuit, CheckCircle2, AlertTriangle, ShieldCheck } from "lucide-react";
+import { BrainCircuit, CheckCircle2, AlertTriangle, ShieldCheck, Activity } from "lucide-react";
 import { StatusBadge } from "@/components/StatusBadge";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
