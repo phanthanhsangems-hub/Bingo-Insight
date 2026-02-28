@@ -32,7 +32,7 @@ args = "Start application"
 
 [[workflows.workflow]]
 name = "Start application"
-mode = "parallel"
+mode = "sequential"
 author = "agent"
 
 [[workflows.workflow.tasks]]
