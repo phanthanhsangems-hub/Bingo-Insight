@@ -34,3 +34,13 @@ author = "agent"
 [[workflows.workflow.tasks]]
 task = "packager.installForLanguage"
 args = "nodejs"
+
+[userenv]
+
+[userenv.production]
+PGHOST = "npg_wbk4vfUET1Rg"
+
+[userenv.shared]
+
+[userenv.development]
+PGHOST = "npg_wbk4vfUET1Rg"
