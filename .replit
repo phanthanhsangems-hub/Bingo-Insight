@@ -1,7 +1,4 @@
-
-
-
-modules = ["nodejs-20", "web", "postgresql-16", "python-base-3.13", "dotnet-10.0"]
+modules = ["nodejs-20", "web", "postgresql-16"]
 run = "npm run dev"
 hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 
@@ -12,7 +9,7 @@ channel = "stable-24_05"
 PORT = "5000"
 
 [deployment]
-deploymentTarget = "static"
+deploymentTarget = "cloudrun"
 run = ["sh", "-c", "Nút ./dist/index.cjs"]
 build = ["npm", "run", "build"]
 publicDir = "dist/public"
@@ -35,17 +32,8 @@ mode = "parallel"
 author = "agent"
 
 [[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run dev"
-waitForPort = 5000
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "npm run dev"
-waitForPort = 5000
-
-[workflows.workflow.metadata]
-outputType = "webview"
+task = "packager.installForLanguage"
+args = "nodejs"
 
 [userenv]
 
@@ -57,13 +45,6 @@ PGHOST = "npg_wbk4vfUET1Rg"
 [userenv.development]
 PGHOST = "npg_wbk4vfUET1Rg"
 
-[rules]
-
-[rules.formatter]
-
-[rules.formatter.fileExtensions]
-
-[rules.formatter.fileExtensions.".ts"]
-id = "module:nodejs-20/formatter:prettier"
-
-
+[[ports]]
+localPort = 5000
+externalPort = 80
