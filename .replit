@@ -44,3 +44,7 @@ PGHOST = "npg_wbk4vfUET1Rg"
 
 [userenv.development]
 PGHOST = "npg_wbk4vfUET1Rg"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
