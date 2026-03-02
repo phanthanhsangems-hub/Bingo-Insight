@@ -39,6 +39,11 @@ task = "shell.exec"
 args = "npm run dev"
 waitForPort = 5000
 
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
+
 [workflows.workflow.metadata]
 outputType = "webview"
 
@@ -63,3 +68,4 @@ id = "module:nodejs-20/formatter:prettier"
 
 [[ports]]
 localPort = 5000
+externalPort = 5000
