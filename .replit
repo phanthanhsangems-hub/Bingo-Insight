@@ -65,7 +65,3 @@ PGHOST = "npg_wbk4vfUET1Rg"
 
 [rules.formatter.fileExtensions.".ts"]
 id = "module:nodejs-20/formatter:prettier"
-
-[[ports]]
-localPort = 5000
-externalPort = 5000
