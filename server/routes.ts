@@ -218,14 +218,14 @@ function calculatePrediction(draws: DrawResponse[]): PredictionResponse {
     // I assume this rule applies mainly to Small/Large.
     const overallRate = candidate.type === 'draw' ? 0 : pct30[candidate.type]; // Use last 30 as "history" proxy
     
-    if (candidate.type !== 'draw' && overallRate < 35) { // 35% tolerance to be safe, prompt said 40% but that might be too strict for a 3-outcome game if data is noisy
-       // Relaxed slightly for MVP, or stick to prompt. Prompt says 40%.
-       if (overallRate < 40) {
-         candidate.score -= 10;
-         candidate.reasons.push(`Low historical rate (${overallRate.toFixed(1)}%)`);
-       } else {
-         candidate.score += 20;
-       }
+    if (candidate.type !== 'draw') {
+      if (overallRate >= 40) {
+        candidate.score += 20;
+        candidate.reasons.push(`Good historical rate (${overallRate.toFixed(1)}%)`);
+      } else {
+        candidate.score -= 10;
+        candidate.reasons.push(`Low historical rate (${overallRate.toFixed(1)}%)`);
+      }
     }
 
     // C. Filter 3 - Extremes
