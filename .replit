@@ -5,11 +5,15 @@ hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 [nix]
 channel = "stable-24_05"
 
+[[ports]]
+localPort = 5000
+externalPort = 80
+
 [env]
 PORT = "5000"
 
 [deployment]
-deploymentTarget = "cloudrun"
+deploymentTarget = "static"
 run = ["sh", "-c", "Nút ./dist/index.cjs"]
 build = ["npm", "run", "build"]
 publicDir = "dist/public"
@@ -35,15 +39,11 @@ author = "agent"
 task = "packager.installForLanguage"
 args = "nodejs"
 
-[userenv]
+[rules]
 
-[userenv.production]
-PGHOST = "npg_wbk4vfUET1Rg"
+[rules.formatter]
 
-[userenv.shared]
+[rules.formatter.fileExtensions]
 
-[userenv.development]
-PGHOST = "npg_wbk4vfUET1Rg"
-
-[[ports]]
-localPort = 5000
+[rules.formatter.fileExtensions.".json"]
+id = "module:web/languageServer:typescript-language-server"
