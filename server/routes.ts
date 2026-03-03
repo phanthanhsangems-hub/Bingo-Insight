@@ -19,6 +19,12 @@ export async function registerRoutes(
     res.json(draws);
   });
 
+  app.get(api.draws.latest.path, async (req, res) => {
+    const draw = await storage.getLatestDraw();
+    if (!draw) return res.status(404).json({ message: "No draws found" });
+    res.json(draw);
+  });
+
   app.post(api.draws.create.path, async (req, res) => {
     try {
       const input = api.draws.create.input.parse(req.body);

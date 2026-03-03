@@ -31,9 +31,13 @@ name = "Start application"
 mode = "parallel"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[workflows.workflow.tasks]]
-task = "packager.installForLanguage"
-args = "nodejs"
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
 
 [userenv]
 
