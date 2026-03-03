@@ -7,6 +7,7 @@ channel = "stable-24_05"
 
 [[ports]]
 localPort = 5000
+externalPort = 80
 
 [env]
 PORT = "5000"
@@ -45,4 +46,4 @@ args = "nodejs"
 [rules.formatter.fileExtensions]
 
 [rules.formatter.fileExtensions.".json"]
-id = "module:web/languageServer:typescript-language-server"
+id = "module:nodejs-20/formatter:prettier"
