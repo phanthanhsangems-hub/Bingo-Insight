@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api, type CreateDrawRequest } from "@shared/routes";
+import { api } from "@shared/routes";
+import { type CreateDrawRequest } from "@shared/schema";
 
 // ============================================
 // DATA HOOKS

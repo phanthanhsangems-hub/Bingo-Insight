@@ -84,7 +84,7 @@ export function PredictionCard() {
           <div className="space-y-2 pt-2 border-t border-white/5">
             <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Analysis</h4>
             <ul className="space-y-1">
-              {reasons.map((reason, idx) => (
+              {reasons.map((reason: string, idx: number) => (
                 <li key={idx} className="text-xs flex items-start gap-2">
                   <CheckCircle2 className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                   <span className="text-muted-foreground">{reason}</span>
